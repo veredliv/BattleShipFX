@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Scene.StartGameScene.StartGame">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" />
+      <ImageView fitHeight="400.0" fitWidth="645.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Resource/Pics/BattleShipLogo.png" />
+         </image>
+         <effect>
+            <Glow />
+         </effect>
+      </ImageView>
+      <Button layoutX="21.0" layoutY="23.0" mnemonicParsing="false" text="Start Game" />
+      <Button layoutX="21.0" layoutY="69.0" mnemonicParsing="false" text="Load Game" />
+   </children>
+</AnchorPane>

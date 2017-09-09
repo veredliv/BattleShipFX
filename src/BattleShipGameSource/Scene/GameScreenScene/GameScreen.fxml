@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="734.0" prefWidth="1192.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Scene.GameScreenScene.GameScreen">
+   <children>
+      <BorderPane />
+      <AnchorPane prefHeight="48.0" prefWidth="1192.0">
+         <children>
+            <ImageView fitHeight="78.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Resource/Pics/battleShipIcon.png" />
+               </image>
+            </ImageView>
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BattleShip" wrappingWidth="276.31103515625">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="50.0" />
+               </font>
+            </Text>
+             <ButtonBar layoutX="315.0" layoutY="26.0" prefHeight="40.0" prefWidth="270.0">
+              <buttons>
+                  <Button fx:id="btnLoadXML" mnemonicParsing="false" text="Load XML">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="12.0" />
+                     </font>
+                  </Button>
+                <Button fx:id="btnStart" mnemonicParsing="false" text="Start">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnExit" mnemonicParsing="false" text="Exit">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="12.0" />
+                     </font>
+                  </Button>
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutX="14.0" layoutY="77.0" prefHeight="644.0" prefWidth="734.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="644.0" prefWidth="734.0">
+               <children>
+                  <TabPane prefHeight="644.0" prefWidth="734.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="My Board">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane layoutX="77.0" layoutY="95.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Opponent Board">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
