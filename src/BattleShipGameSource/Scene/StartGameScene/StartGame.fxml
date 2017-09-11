@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.canvas.*?>
@@ -10,19 +11,15 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Scene.StartGameScene.StartGame">
+<AnchorPane prefHeight="152.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Scene.StartGameScene.StartGameController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" />
-      <AnchorPane prefHeight="400.0" prefWidth="600.0" />
-      <ImageView fitHeight="400.0" fitWidth="645.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Resource/Pics/BattleShipLogo.png" />
-         </image>
-         <effect>
-            <Glow />
-         </effect>
-      </ImageView>
-      <Button layoutX="21.0" layoutY="23.0" mnemonicParsing="false" text="Start Game" />
-      <Button layoutX="21.0" layoutY="69.0" mnemonicParsing="false" text="Load Game" />
+      <AnchorPane prefHeight="195.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="btnLoadXmlFile" layoutY="96.0" mnemonicParsing="false" text="Load XML" />
+            <Button fx:id="btnStartGame" layoutY="52.0" mnemonicParsing="false" text="Start Game" />
+            <Button fx:id="btnExit" layoutY="143.0" mnemonicParsing="false" text="Exit" />
+            <Text fx:id="textStatus" layoutX="108.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="???????????" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
