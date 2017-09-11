@@ -1,24 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
-<?import javafx.scene.canvas.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="152.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Scene.StartGameScene.StartGameController">
+<AnchorPane prefHeight="242.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Scene.StartGameScene.StartGameController">
    <children>
-      <AnchorPane prefHeight="195.0" prefWidth="600.0">
+      <AnchorPane prefHeight="151.0" prefWidth="601.0">
          <children>
-            <Button fx:id="btnLoadXmlFile" layoutY="96.0" mnemonicParsing="false" text="Load XML" />
-            <Button fx:id="btnStartGame" layoutY="52.0" mnemonicParsing="false" text="Start Game" />
-            <Button fx:id="btnExit" layoutY="143.0" mnemonicParsing="false" text="Exit" />
-            <Text fx:id="textStatus" layoutX="108.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="???????????" />
+            <Button layoutX="1.0" layoutY="51.0" mnemonicParsing="false" text="Load XML" textFill="#264edd">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="15.0" />
+               </font></Button>
+            <Button id="btnLoadXmlFile" layoutX="1.0" layoutY="7.0" mnemonicParsing="false" text="Start Game" textFill="#264edd">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="16.0" />
+               </font></Button>
+            <Button layoutX="1.0" layoutY="98.0" mnemonicParsing="false" text="Exit" textFill="#264edd">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="15.0" />
+               </font></Button>
+            <Text id="textStatus" layoutX="109.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="???????????" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="429.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Resource/Pics/battleShipIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="4.0" layoutY="151.0" prefHeight="114.0" prefWidth="601.0">
+         <children>
+            <TextArea layoutX="-5.0" prefHeight="114.0" prefWidth="605.0" />
+            <Text layoutX="16.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BATTLE SHIP GAME">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="60.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

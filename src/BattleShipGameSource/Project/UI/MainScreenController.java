@@ -11,14 +11,16 @@ import java.awt.*;
 import java.util.ResourceBundle;
 
 
-public class MainScreenController implements Initializable {
+    public class MainScreenController implements Initializable {
 
-        @FXML private GridPane SideMenuGridPane;
-        @FXML private GridPane ChooseMoveTypeGridPane;
-        @FXML private Pane HeadOfScreenPane;
-        @FXML private Label outputBottomText;
-        @FXML private Button buttonLoadXmlFile;
-        @FXML private Button buttonStart;
+//        @FXML private GridPane SideMenuGridPane;
+//        @FXML private GridPane ChooseMoveTypeGridPane;
+//        @FXML private Pane HeadOfScreenPane;
+//        @FXML private Label outputBottomText;
+        @FXML private Button btnLoadXmlFile;
+        @FXML private Button btnStart;
+        @FXML private Button btnExit;
+
         @FXML private Text textStatus;
 
 
