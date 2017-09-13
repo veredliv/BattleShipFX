@@ -1,4 +1,4 @@
-package BattleShipGameSource.Scene.StartGameScene;
+package BattleShipGameSource.Resource.Scene.StartGameScene;
 
 import BattleShipGameSource.Project.modules.GameManager;
 import javafx.fxml.FXML;
@@ -7,38 +7,13 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldListCell;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.stage.*;
-import javafx.stage.Window;
 import mypackage.BattleShipGame;
 
-import javax.swing.text.Style;
-import java.awt.*;
 import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 import static java.lang.Thread.sleep;
 
 public class StartGameController implements Initializable{

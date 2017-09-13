@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="242.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Scene.StartGameScene.StartGameController">
+<AnchorPane prefHeight="242.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Resource.Scene.StartGameScene.StartGameController">
    <children>
       <AnchorPane prefHeight="151.0" prefWidth="601.0">
          <children>
@@ -21,10 +22,9 @@
                <font>
                   <Font name="Berlin Sans FB Bold" size="15.0" />
                </font></Button>
-            <Text id="textStatus" layoutX="109.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="???????????" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="429.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Resource/Pics/battleShipIcon.png" />
+                  <Image url="@../../Pics/battleShipIcon.png" />
                </image>
             </ImageView>
          </children>
