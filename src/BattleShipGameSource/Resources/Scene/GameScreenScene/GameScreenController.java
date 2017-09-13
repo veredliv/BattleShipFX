@@ -1,22 +1,16 @@
-package BattleShipGameSource.Resource.Scene.GameScreenScene;
+package BattleShipGameSource.Resources.Scene.GameScreenScene;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import BattleShipGameSource.Project.UI.UserIteration;
 import BattleShipGameSource.Project.UI.XmlLoader;
 import BattleShipGameSource.Project.modules.GameManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.stage.*;
-import mypackage.BattleShipGame;
 
 public class GameScreenController implements Initializable {
 
@@ -63,14 +57,14 @@ public class GameScreenController implements Initializable {
         Stage newStage = new Stage();
 
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Open Resources File");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("XML Files", "*.xml"),
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
         File selectedFile = fileChooser.showOpenDialog(newStage);
 
 //        Test
-//        String fileName = "C:\\Java\\BattleShipFX\\src\\BattleShipGameSource\\Resource\\battleShip_5_basic.xml";
+//        String fileName = "C:\\Java\\BattleShipFX\\src\\BattleShipGameSource\\Resources\\battleShip_5_basic.xml";
 //        File selectedFile = new File(fileName);
 
         GameManager gameManager = new GameManager();

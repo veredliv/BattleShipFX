@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="242.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Resource.Scene.StartGameScene.StartGameController">
+<AnchorPane prefHeight="242.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Resources.Scene.StartGameScene.StartGameController">
    <children>
       <AnchorPane prefHeight="151.0" prefWidth="601.0">
          <children>

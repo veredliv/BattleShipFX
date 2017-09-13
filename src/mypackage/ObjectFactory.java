@@ -1,6 +1,8 @@
 
 package mypackage;
 
+import BattleShipGameSource.Resources.BattleShipGame;
+
 import javax.xml.bind.annotation.XmlRegistry;
 
 

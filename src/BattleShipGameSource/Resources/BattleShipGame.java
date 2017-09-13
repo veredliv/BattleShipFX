@@ -1,5 +1,5 @@
 
-package mypackage;
+package BattleShipGameSource.Resources;
 
 import java.util.ArrayList;
 import java.util.List;

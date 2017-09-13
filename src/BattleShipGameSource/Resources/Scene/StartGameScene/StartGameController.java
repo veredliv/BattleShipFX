@@ -1,4 +1,4 @@
-package BattleShipGameSource.Resource.Scene.StartGameScene;
+package BattleShipGameSource.Resources.Scene.StartGameScene;
 
 import BattleShipGameSource.Project.modules.GameManager;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.scene.text.Text;
 import javafx.stage.*;
-import mypackage.BattleShipGame;
+import BattleShipGameSource.Resources.BattleShipGame;
 
 import java.io.File;
 
@@ -62,7 +62,7 @@ public class StartGameController implements Initializable{
         Stage newStage = new Stage();
 
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Open Resources File");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("XML Files", "*.xml"),
 //                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"),

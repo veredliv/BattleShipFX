@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="242.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BattleShipGameSource.Resources.Scene.StartGameScene.StartGameController">
+   <children>
+      <AnchorPane prefHeight="151.0" prefWidth="601.0">
+         <children>
+            <Button layoutX="1.0" layoutY="51.0" mnemonicParsing="false" text="Load XML" textFill="#264edd">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="15.0" />
+               </font></Button>
+            <Button id="btnLoadXmlFile" layoutX="1.0" layoutY="7.0" mnemonicParsing="false" text="Start Game" textFill="#264edd">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="16.0" />
+               </font></Button>
+            <Button layoutX="1.0" layoutY="98.0" mnemonicParsing="false" text="Exit" textFill="#264edd">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="15.0" />
+               </font></Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="429.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Pics/battleShipIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="4.0" layoutY="151.0" prefHeight="114.0" prefWidth="601.0">
+         <children>
+            <TextArea layoutX="-5.0" prefHeight="114.0" prefWidth="605.0" />
+            <Text layoutX="16.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BATTLE SHIP GAME">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="60.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

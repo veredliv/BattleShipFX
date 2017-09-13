@@ -1,18 +1,9 @@
 package BattleShipGameSource.Project.UI;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,7 +20,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
-        URL url = getClass().getClassLoader().getResource("BattleShipGameSource/Resource/Scene/GameScreenScene/GameScreen.fxml ");
+        URL url = getClass().getClassLoader().getResource("BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml ");
         fxmlLoader.setLocation(url);
         System.out.println(url);
         System.out.println(fxmlLoader.getLocation());
@@ -45,7 +36,7 @@ public class Main extends Application{
 //        primaryStage.setTitle("BattleShip");
 //        primaryStage.setResizable(true);
 //        FXMLLoader fxmlLoader = new FXMLLoader();
-//        //URL url = getClass().getResource("Resource/battleShip_5_basic.xml");
+//        //URL url = getClass().getResource("Resources/battleShip_5_basic.xml");
 //        //URL url = getClass().getResource("Scene/StartGameScene/StartGame.fxml");
 //        URL url = getClass().getResource("Scene/GameScreenScene/GameScreenScene.fxml");
 //        //URL url = getClass().getResource("Scene/GameOverScene/GameOver.fxml");

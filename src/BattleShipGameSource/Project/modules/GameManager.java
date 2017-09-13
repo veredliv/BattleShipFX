@@ -2,10 +2,12 @@ package BattleShipGameSource.Project.modules;
 
 import BattleShipGameSource.Project.UI.UserIteration;
 import BattleShipGameSource.Project.UI.XmlLoader;
-import mypackage.BattleShipGame;
+import BattleShipGameSource.Resources.BattleShipGame;
 
 import java.awt.*;
 import java.util.ArrayList;
+
+import static java.lang.System.exit;
 
 public class GameManager {
     private static final int MAX_PLAYERS = 2;
@@ -32,7 +34,7 @@ public class GameManager {
         return msg;
     }
 
-    public void playGame(){
+    public void playGame() throws Exception{
         initPlayers();
         timeStart = System.currentTimeMillis();
         startGame();
@@ -169,9 +171,9 @@ public class GameManager {
         return true;
     }
 
-    public void initPlayers(){
+    public void initPlayers()throws Exception{
         minesAmount = BattleShipConfig.getMinesAmount();
-        battleShipsAmount = BattleShipConfig.getShipAmountTypeA() + BattleShipConfig.getShipAmountTypeB() + BattleShipConfig.getShipAmountTypeL();
+        battleShipsAmount = XmlLoader.getBattleShipsPlayer1().size();
         BattelShip[] battleShipsPlayer1 = createBattleShipsFromShipsArray(XmlLoader.getBattleShipsPlayer1());
         BattelShip[] battleShipsPlayer2 = createBattleShipsFromShipsArray(XmlLoader.getBattleShipsPlayer2());
 
@@ -179,30 +181,20 @@ public class GameManager {
         previousPlayer = new Player("player2", boardSize, battleShipsAmount, battleShipsPlayer2, minesAmount);
     }
 
-    private BattelShip[] createBattleShipsFromShipsArray(ArrayList<BattleShipGame.Boards.Board.Ship> i_shipsArray) {
+    private BattelShip[] createBattleShipsFromShipsArray(ArrayList<BattleShipGame.Boards.Board.Ship> i_shipsArray) throws Exception{
         BattelShip[] res = new BattelShip[battleShipsAmount];
         int index = 0;
+        ArrayList<BattleShipConfig> battleShipConfigs = XmlLoader.getBattleShipConfigs();
         BattelShip battelShip = new BattelShip();
 
         for (BattleShipGame.Boards.Board.Ship ship : i_shipsArray) {
             Point point = new Point(ship.getPosition().getX(), ship.getPosition().getY());
-            if (ship.getShipTypeId().equals("A")) {
-                battelShip = new BattelShip(ship.getShipTypeId(), point, ship.getDirection(),
-                        BattleShipConfig.getShipLengthTypeA(), BattleShipConfig.getShipScoreTypeA());
-            }
-            else if (ship.getShipTypeId().equals("B")) {
-                battelShip = new BattelShip(ship.getShipTypeId(), point, ship.getDirection(),
-                        BattleShipConfig.getShipLengthTypeB(), BattleShipConfig.getShipScoreTypeB());
-            }
-            else if (ship.getShipTypeId().equals("L")) {
-                battelShip = new BattelShip(ship.getShipTypeId(), point, ship.getDirection(),
-                        BattleShipConfig.getShipLengthTypeL(), BattleShipConfig.getShipScoreTypeL());
-            }
-
+            battelShip = new BattelShip(ship.getShipTypeId(), point, ship.getDirection(),
+                    XmlLoader.getShipLengthByShipType(ship.getShipTypeId()), XmlLoader.getShipScoreByShipType(ship.getShipTypeId()));
             res[index++] = battelShip;
         }
 
         return res;
-
     }
 }
+
