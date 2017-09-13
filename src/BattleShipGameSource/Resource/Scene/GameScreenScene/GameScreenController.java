@@ -5,7 +5,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import BattleShipGameSource.Project.UI.UserIteration;
 import BattleShipGameSource.Project.UI.XmlLoader;
+import BattleShipGameSource.Project.modules.GameManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -24,6 +26,8 @@ public class GameScreenController implements Initializable {
     private Button btnStart;
     @FXML
     private Button btnExit;
+
+    private static Boolean gameLoaded = false;
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
@@ -65,6 +69,13 @@ public class GameScreenController implements Initializable {
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
         File selectedFile = fileChooser.showOpenDialog(newStage);
 
+        GameManager gameManager = new GameManager();
+        try {
+            XmlLoader xml = new XmlLoader();
+            gameLoaded = xml.loadBattelShipsConfig();
+        }   catch (Exception e){
+                    System.out.println("Exception: " + e.getMessage());
+                }
 //        ArrayList<BattleShipGame.Boards.Board.Ship> p1 = XmlLoader.getBattleShipsPlayer1();
 //        ArrayList<BattleShipGame.Boards.Board.Ship> p2 = XmlLoader.getBattleShipsPlayer2();
 //        System.out.println("LOAD");
@@ -75,6 +86,11 @@ public class GameScreenController implements Initializable {
 //        !!! need to draw player A board with his ships.
 //        on the tabMyBoard
         System.out.println("START");
+        btnLoadXML.setDisable(true);
+        btnStart.setDisable(true);
+
+        //textStatus.setText("Game Started!");
+        //boardTabs = new TabPane();
 
     }
 
