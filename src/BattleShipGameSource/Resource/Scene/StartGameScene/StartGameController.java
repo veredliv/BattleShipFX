@@ -70,66 +70,68 @@ public class StartGameController implements Initializable{
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
         File selectedFile = fileChooser.showOpenDialog(newStage);
 
-        String filename;
+        System.out.println(selectedFile.toString());
 
-        if (selectedFile != null) {
-//            textStatus.setVisible(true);
-            textStatus.setText(" Loading XML file, please wait... ");
-            try {
-                gameDescriptor = new BattleShipGame();
-
-            } catch (Exception e) {
-                Exception error = new Exception("Non XML file");
-                btnStart.setDisable(true);
-                textStatus.setText(error.getMessage());
-                throw error;
-            }
-
-            if (gameDescriptor != null) {
-//                textStatus.setVisible(true);
-                textStatus.setText(" XML file loaded, testing the file, please wait... ");
-//                textStatus.setVisible(true);
-
-                try {
-                    // !!! need to create game
-                    //theGame = new Game(gameDescriptor);
-                }
-                catch (Exception error) {
-                    btnStart.setDisable(true);
-                    textStatus.setText(error.getMessage());
-                    throw error;
-                }
-
-//                if (game.isValidBoard()) {
-//                    xmlLoaded = true;
-//                    textStatus.setText(" Board OK. Click 'Start!' or 'Load XML' to load another file");
-//                    buttonStart.setDisable(false);
+//        String filename;
 //
-//                    try {
-//                        theGame.startAll(gameDescriptor);
-//                    }
-//                    catch (Exception error) {
-//                        buttonStart.setDisable(true);
-//                        textStatus.setText(error.getMessage());
-//                        throw error;
-//                    }
+//        if (selectedFile != null) {
+////            textStatus.setVisible(true);
+//            textStatus.setText(" Loading XML file, please wait... ");
+//            try {
+//                gameDescriptor = new BattleShipGame();
 //
-
-//                    drawBoard(boardGrid, true);
-//                    drawPlayerTable();
-//                    labelTotalMoves.setText(String.valueOf(theGame.moves));
+//            } catch (Exception e) {
+//                Exception error = new Exception("Non XML file");
+//                btnStart.setDisable(true);
+//                textStatus.setText(error.getMessage());
+//                throw error;
+//            }
 //
+//            if (gameDescriptor != null) {
+////                textStatus.setVisible(true);
+//                textStatus.setText(" XML file loaded, testing the file, please wait... ");
+////                textStatus.setVisible(true);
+//
+//                try {
+//                    // !!! need to create game
+//                    //theGame = new Game(gameDescriptor);
 //                }
-//                else {
-//                    textStatus.setText(" Board parameters NOT valid! Try again");
-//                    buttonStart.setDisable(true);
+//                catch (Exception error) {
+//                    btnStart.setDisable(true);
+//                    textStatus.setText(error.getMessage());
+//                    throw error;
 //                }
-//                playerTable = new TableView<>();
-            }
-            else {
-                textStatus.setText("XML file not loaded, bad parameters, try again. ");
-            }
-        }
+//
+////                if (game.isValidBoard()) {
+////                    xmlLoaded = true;
+////                    textStatus.setText(" Board OK. Click 'Start!' or 'Load XML' to load another file");
+////                    buttonStart.setDisable(false);
+////
+////                    try {
+////                        theGame.startAll(gameDescriptor);
+////                    }
+////                    catch (Exception error) {
+////                        buttonStart.setDisable(true);
+////                        textStatus.setText(error.getMessage());
+////                        throw error;
+////                    }
+////
+//
+////                    drawBoard(boardGrid, true);
+////                    drawPlayerTable();
+////                    labelTotalMoves.setText(String.valueOf(theGame.moves));
+////
+////                }
+////                else {
+////                    textStatus.setText(" Board parameters NOT valid! Try again");
+////                    buttonStart.setDisable(true);
+////                }
+////                playerTable = new TableView<>();
+//            }
+//            else {
+//                textStatus.setText("XML file not loaded, bad parameters, try again. ");
+//            }
+//        }
     }
 
 }

@@ -37,7 +37,6 @@ public class Main extends Application{
         primaryStage.setScene(new Scene(root, 800, 800));
         XmlLoader.getBattleShipsPlayer1();
         XmlLoader.getBattleShipsPlayer2();
-        System.out.println("LOAD");
 
         primaryStage.show();
 

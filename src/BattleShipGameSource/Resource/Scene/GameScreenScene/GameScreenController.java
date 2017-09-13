@@ -69,16 +69,17 @@ public class GameScreenController implements Initializable {
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
         File selectedFile = fileChooser.showOpenDialog(newStage);
 
+//        Test
+//        String fileName = "C:\\Java\\BattleShipFX\\src\\BattleShipGameSource\\Resource\\battleShip_5_basic.xml";
+//        File selectedFile = new File(fileName);
+
         GameManager gameManager = new GameManager();
         try {
-            XmlLoader xml = new XmlLoader();
+            XmlLoader xml = new XmlLoader(selectedFile);
             gameLoaded = xml.loadBattelShipsConfig();
         }   catch (Exception e){
                     System.out.println("Exception: " + e.getMessage());
                 }
-//        ArrayList<BattleShipGame.Boards.Board.Ship> p1 = XmlLoader.getBattleShipsPlayer1();
-//        ArrayList<BattleShipGame.Boards.Board.Ship> p2 = XmlLoader.getBattleShipsPlayer2();
-//        System.out.println("LOAD");
     }
 
 

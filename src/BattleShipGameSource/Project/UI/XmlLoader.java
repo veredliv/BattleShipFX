@@ -25,10 +25,17 @@ public class XmlLoader {
     private static int boardSize = 0;
     private static ArrayList<BattleShipGame.Boards.Board.Ship> battleShipsPlayer1 = new ArrayList<>();
     private static ArrayList<BattleShipGame.Boards.Board.Ship> battleShipsPlayer2 = new ArrayList<>();
+    private static  File inputFile = null;
 
     public XmlLoader() {
         battleShipsPlayer1.clear();
         battleShipsPlayer2.clear();
+    }
+
+    public XmlLoader(File _file) {
+        battleShipsPlayer1.clear();
+        battleShipsPlayer2.clear();
+        inputFile = _file;
     }
 
     public static ArrayList<BattleShipGame.Boards.Board.Ship> getBattleShipsPlayer1(){return battleShipsPlayer1;}
@@ -41,8 +48,13 @@ public class XmlLoader {
             //String fullPath = UserIteration.getFullPathMsg();
             JAXBContext jc = JAXBContext.newInstance(BattleShipGame.class);
             Unmarshaller unmarshaller = jc.createUnmarshaller();
-            File xml = new File("src\\Resources\\BattleShipGame.xml");
-            BattleShipGame battleShip = (BattleShipGame) unmarshaller.unmarshal(xml);
+            if(inputFile == null)
+            {
+                inputFile = new File("src\\BattleShipGameSource\\Resource\\battleShip_5_basic.xml");
+            }
+
+            // moshe - i think here is the problem
+            BattleShipGame battleShip = (BattleShipGame) unmarshaller.unmarshal(inputFile);
             valid = inputValidation(battleShip);
 
             return valid;
