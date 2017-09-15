@@ -24,6 +24,11 @@ public class GameManager {
     private static int minesAmount;
 
     public static void setBoardSize(int i_boardSize){ boardSize = i_boardSize;}
+    public static int getBoardSize() { return boardSize; }
+
+    public static Player getCurrentPlayer() {
+        return currentPlayer;
+    }
 
     private static String setTotalTimeToString(long i_totalTime)
     {

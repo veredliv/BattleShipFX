@@ -2,6 +2,7 @@ package BattleShipGameSource.ProjectFx.UIFx;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 
 
 public class BoardButton extends ToggleButton {
@@ -30,6 +31,10 @@ public class BoardButton extends ToggleButton {
     public void setCh(char ch) {
         this.ch = ch;
     }
+
+    Image imageMark = new Image("BattleShipGameSource/Resources/Pics/Mark.png");
+    Image imageV = new Image("BattleShipGameSource/Resources/Pics/V.png");
+    Image imageX = new Image("BattleShipGameSource/Resources/Pics/X.png");
 
     int col;
     char ch;
@@ -70,6 +75,11 @@ public class BoardButton extends ToggleButton {
     void setStyleUndefined(){
         setStyle("-fx-base: #d3f3ff");
         setText("?");
+    }
+
+    void setHitPos()
+    {
+        //setGraphic();
     }
 
 
