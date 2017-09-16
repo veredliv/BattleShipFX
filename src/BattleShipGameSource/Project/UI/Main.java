@@ -11,7 +11,7 @@ import java.net.URL;
 
 
 public class Main extends Application{
-    public static Stage window;
+    Stage window;
 
     public static void main(String[] args) throws IOException {
         launch(args);
@@ -22,14 +22,16 @@ public class Main extends Application{
         FXMLLoader fxmlLoader = new FXMLLoader();
         URL url = getClass().getClassLoader().getResource("BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml ");
         fxmlLoader.setLocation(url);
+        System.out.println(url);
+        System.out.println(fxmlLoader.getLocation());
         Parent root = fxmlLoader.load(url);
-        primaryStage.setScene(new Scene(root, 1200, 800));
-        XmlLoader.getBattleShipsPlayer1();
-        XmlLoader.getBattleShipsPlayer2();
+        primaryStage.setScene(new Scene(root, 800, 800));
+        //XmlLoader.getBattleShipsPlayer1();
+        //XmlLoader.getBattleShipsPlayer2();
 
         primaryStage.show();
 
-
+//        window = primaryStage;
 //
 //        primaryStage.setTitle("BattleShip");
 //        primaryStage.setResizable(true);
@@ -47,7 +49,6 @@ public class Main extends Application{
 //        ScrollPane sp = new ScrollPane(root);
 //        primaryStage.setScene(new Scene(sp));
 //          primaryStage.show();
-
 
     }
 }

@@ -385,8 +385,7 @@ public class GameScreenController implements Initializable {
 
 
     public void StartGame(MouseEvent mouseEvent) {
-//        !!! need to draw player A board with his ships.
-//        on the tabMyBoard
+
         boardTabs = new TabPane();
 
         ArrayList<BoardButton> boardButtons = new ArrayList<>();
@@ -538,9 +537,7 @@ public class GameScreenController implements Initializable {
     }
 
     public void ExitGame(MouseEvent mouseEvent) throws IOException {
-<<<<<<< HEAD
 
-=======
 //        !!!Need to show the statistic of the players
 //        Stage stage = (Stage) btnExit.getScene().getWindow();
 //        stage.close();
@@ -552,7 +549,7 @@ public class GameScreenController implements Initializable {
 //        Main.window.setScene(new Scene(root, 500, 500));
 //
 //        Main.window.show();
->>>>>>> 4333ca1b6da1f8f0c286858805463172bdf337a3
+
     }
 
 
