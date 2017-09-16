@@ -1,7 +1,11 @@
 package BattleShipGameSource.Resources.Scene.GameScreenScene;
 
+import BattleShipGameSource.Project.UI.PlayerTab;
+import BattleShipGameSource.Resources.BattleShipGame.Boards.Board.Ship;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -9,16 +13,21 @@ import java.util.ResourceBundle;
 import BattleShipGameSource.Project.UI.Main;
 import BattleShipGameSource.Project.UI.PlayerBoard;
 import BattleShipGameSource.Project.UI.XmlLoader;
+import BattleShipGameSource.Project.modules.BattelShip;
 import BattleShipGameSource.Project.modules.Board;
 import BattleShipGameSource.Project.modules.GameManager;
 import BattleShipGameSource.Project.modules.Player;
 import BattleShipGameSource.ProjectFx.UIFx.BoardButton;
+import BattleShipGameSource.Resources.BattleShipGame;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -36,6 +45,13 @@ public class GameScreenController implements Initializable {
     public static GameManager theGame = new GameManager();
     ArrayList<PlayerBoard> playerBoards = new ArrayList<>();
     @FXML private Tab tabMyBoard;
+    @FXML private Tab tabGuessBoard = new Tab();
+
+    PlayerBoard myBoard;
+    PlayerBoard enemyBoard;
+
+    PlayerTab myTab = new PlayerTab();
+    PlayerTab enemyTab = new PlayerTab();
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
@@ -85,10 +101,6 @@ public class GameScreenController implements Initializable {
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
         File selectedFile = fileChooser.showOpenDialog(newStage);
 
-//        Test
-//        String fileName = "C:\\Java\\BattleShipFX\\src\\BattleShipGameSource\\Resources\\battleShip_5_basic.xml";
-//        File selectedFile = new File(fileName);
-
         GameManager gameManager = new GameManager();
 
         try {
@@ -106,41 +118,142 @@ public class GameScreenController implements Initializable {
         boardTabs = new TabPane();
 
         ArrayList<BoardButton> boardButtons = new ArrayList<>();
-        drawTabs(theGame.getCurrentPlayer());
-
-
+        ArrayList<BoardButton> myBoard = drawTab(theGame.getCurrentPlayer(), myTab, tabMyBoard, false);
+        ArrayList<BoardButton> enemyBoard = drawTab(theGame.getCurrentPlayer(), enemyTab, tabGuessBoard, true);
+        //drawShipsOnBoard(tabMyBoard, GameManager.getCurrentPlayer().getBattelShipsArray());
+        myTab.tab = tabMyBoard;
+        enemyTab.tab = tabGuessBoard;
 
         btnLoadXML.setDisable(true);
         btnStart.setDisable(true);
 
-        //textStatus.setText("Game Started!");
-        //boardTabs = new TabPane();
-
     }
 
-    private void drawTabs(Player currentPlayer) {
+    private void drawShipsOnBoard(Tab tabMyBoard, BattelShip[] battelShipsArray) {
+
+        for(BattelShip battelShip : battelShipsArray ) {
+            ArrayList<Point> shipsPos = new ArrayList<>();
+            shipsPos = getShipPoint(battelShip);
+            for (Point point : shipsPos) {
+                int xVal = (int)point.getX();
+                int yVal = (int)point.getY();
+                BoardButton currButton = (BoardButton)(myBoard.getPlayerBoardButtons().get(yVal * battelShip.getLength() + xVal + 1));
+                currButton.textProperty().setValue("x");
+            }
+            return;
+        }
+    }
+
+    ArrayList<Point> getShipPoint(BattelShip ship) {
+        ArrayList<Point> shipsPos = new ArrayList<>();
+
+        if (ship.getDirection() == "ROW") {
+            for (int i=0; i<ship.getLength(); i++) {
+                int xValue = (int)ship.getPosition().getX() + i;
+                int yValue = (int)ship.getPosition().getY();
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+        }
+
+        else if (ship.getDirection() == "COLUMN") {
+            for (int i=0; i<ship.getLength(); i++) {
+                int xValue = (int)ship.getPosition().getX();
+                int yValue = (int)ship.getPosition().getY() + i;
+                shipsPos.add(new Point(xValue, yValue));
+            }
+        }
+
+        else if(ship.getDirection() == "RIGHT_DOWN") {
+            int i;
+            for (i=0; i<ship.getLength(); i++) {
+                int xValue = (int)ship.getPosition().getX();
+                int yValue = (int)ship.getPosition().getY() + i;
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+            for (int j = 1; j<ship.getLength(); j++) {
+                int xValue = (int)ship.getPosition().getX() + j;
+                int yValue = (int)ship.getPosition().getY() + i;
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+        }
+        else if(ship.getDirection() == "RIGHT_UP") {
+            int i;
+            for (i=0; i<ship.getLength(); i++) {
+                int xValue = (int)ship.getPosition().getX();
+                int yValue = (int)ship.getPosition().getY() + i;
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+            for (int j = 1; j<ship.getLength(); j--) {
+                int xValue = (int)ship.getPosition().getX() + j;
+                int yValue = (int)ship.getPosition().getY() + i;
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+        }
+        else if(ship.getDirection() == "UP_RIGHT") {
+            int i;
+            for (i=0; i<ship.getLength(); i--) {
+                int xValue = (int)ship.getPosition().getX() + i;
+                int yValue = (int)ship.getPosition().getY();
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+            for (int j = 1; j<ship.getLength(); j++) {
+                int xValue = (int)ship.getPosition().getX() + i;
+                int yValue = (int)ship.getPosition().getY() + j;
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+        }
+        else if(ship.getDirection() == "DOWN_RIGHT") {
+            int i;
+            for (i=0; i<ship.getLength(); i++) {
+                int xValue = (int)ship.getPosition().getX() + i;
+                int yValue = (int)ship.getPosition().getY();
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+            for (int j = 1; j<ship.getLength(); j++) {
+                int xValue = (int)ship.getPosition().getX() + i;
+                int yValue = (int)ship.getPosition().getY() + j;
+
+                shipsPos.add(new Point(xValue, yValue));
+            }
+        }
+
+        return shipsPos;
+    }
+
+    ArrayList<BoardButton> drawTab(Player currentPlayer, PlayerTab playerTab, Tab tab, boolean isClickable) {
         GameScreenController.boardTabs.getTabs().clear();
         ArrayList<BoardButton> boardButtons = new ArrayList<>();
         //drawTabForPlayer(currentPlayer);
-        tabMyBoard.setClosable(false);
+        tab.setClosable(false);
 
-        ScrollPane scrollPane = new ScrollPane();
-        GridPane gridPane = new GridPane();
+        playerTab.scrollPane = new ScrollPane();
+        playerTab.gridPane = new GridPane();
 
-        scrollPane.setContent(gridPane);
-        scrollPane.setFitToHeight(true);
-        scrollPane.setFitToWidth(true);
-        scrollPane.setMaxWidth(Region.USE_COMPUTED_SIZE);
-        scrollPane.setMaxHeight(Region.USE_COMPUTED_SIZE);
+        playerTab.scrollPane.setContent(playerTab.gridPane);
+        playerTab.scrollPane.setFitToHeight(true);
+        playerTab.scrollPane.setFitToWidth(true);
+        playerTab.scrollPane.setMaxWidth(Region.USE_COMPUTED_SIZE);
+        playerTab.scrollPane.setMaxHeight(Region.USE_COMPUTED_SIZE);
 
-        boardButtons = drawBoard(gridPane, false);
-        tabMyBoard.setContent(scrollPane);
-        gridPane.setVisible(true);
+        boardButtons = drawBoard(playerTab.gridPane, !isClickable);
 
-        GameScreenController.boardTabs.getTabs().add(tabMyBoard);
+        tab.setContent(playerTab.scrollPane);
+        playerTab.gridPane.setVisible(true);
+
+        GameScreenController.boardTabs.getTabs().add(tab);
 
         PlayerBoard playerBoard = new PlayerBoard(boardButtons);
         playerBoards.add(playerBoard);
+
+        return boardButtons;
     }
 
     private void drawTabForPlayer(Player currentPlayer) {
@@ -149,19 +262,14 @@ public class GameScreenController implements Initializable {
 
     public void ExitGame(MouseEvent mouseEvent) throws IOException {
 //        !!!Need to show the statistic of the players
-//        try {
-//            FXMLLoader fxmlLoader = new FXMLLoader();
-//            URL url = getClass().getResource("src\\BattleShipGameSource\\Resources\\Scene\\GameOverScene\\GameOver.fxml");
-//            fxmlLoader.setLocation(url);
-//            Parent root = fxmlLoader.load(url);
-//            Main.window.setScene(new Scene(root, 800, 800));
-//            XmlLoader.getBattleShipsPlayer1();
-//            XmlLoader.getBattleShipsPlayer2();
-//        }
-//        catch (Exception e){
-//            System.out.println("Exception: ExitGame failed fxmlLoader.load(url)");
-//            System.out.println(e.getMessage());
-//        }
+//        Stage stage = (Stage) btnExit.getScene().getWindow();
+//        stage.close();
+//
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        URL url = getClass().getResource("src\\BattleShipGameSource\\Resources\\Scene\\GameOverScene\\GameOver.fxml");
+//        fxmlLoader.setLocation(url);
+//        Parent root = fxmlLoader.load(url);
+//        Main.window.setScene(new Scene(root, 500, 500));
 //
 //        Main.window.show();
     }
@@ -180,8 +288,8 @@ public class GameScreenController implements Initializable {
                 BoardButton button = new BoardButton(y, x);
                 button.setDisable(isDisabled);
 
-                button.setPrefWidth(30);
-                button.setPrefHeight(30);
+                button.setPrefWidth(50);
+                button.setPrefHeight(50);
 
                 playerBoardButtons.add(button);
                 GridPane.setConstraints(button, x, y);
