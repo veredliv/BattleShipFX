@@ -21,7 +21,7 @@ public class Player {
     private static final String DOWN_RIGHT = "DOWN_RIGHT";
     private static final String UP_RIGHT = "UP_RIGHT";
     private static final String RIGHT_UP = "RIGHT_UP";
-    private BattelShip[] battelShipsArray;
+    private BattelShip[] battelShipsArray = null;
     private int numOfBattelships;
     private long avgTimeForMove;
     private static int minesLeft;
@@ -39,6 +39,10 @@ public class Player {
         myBoard = createMyBoard();
         oponentBoard = createOpBoard();
         createBattleShips();
+    }
+
+    public BattelShip[] getBattelShipsArray() {
+        return battelShipsArray;
     }
 
     private void createBattleShips() {
