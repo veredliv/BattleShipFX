@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f52e8598-98ab-485b-a202-bc988b291e54" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/UI/MainScreenController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/UI/UserIteration.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/UI/XmlLoader.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/modules/BattelShip.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/modules/BattleShipConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/modules/Board.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/modules/BoardCell.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/modules/GameManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/ProjectFx/UIFx/BattleShip.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/ProjectFx/UIFx/BattleShipFx.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/ProjectFx/UIFx/BoardButton.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/ProjectFx/UIFx/PlayerFX.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame$Boards$Board$Ship$Position.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame$Boards$Board$Ship.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame$Boards$Board.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame$Boards.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame$Mine.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame$ShipTypes$ShipType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame$ShipTypes.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/BattleShipGame.xsd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/battleShip_5_basic.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +16,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="24" column="19" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+            <state relative-caret-position="238">
+              <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -405,15 +382,16 @@
       <updated>1505315003182</updated>
       <workItem from="1505315004871" duration="8889000" />
       <workItem from="1505482773353" duration="368000" />
-      <workItem from="1505552182598" duration="12949000" />
+      <workItem from="1505552182598" duration="13186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22206000" />
+    <option name="totallyTimeSpent" value="22443000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -425,7 +403,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26207906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26207906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -973,8 +951,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="24" column="19" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        <state relative-caret-position="238">
+          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

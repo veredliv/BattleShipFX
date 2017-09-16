@@ -26,8 +26,8 @@ public class Main extends Application{
         System.out.println(fxmlLoader.getLocation());
         Parent root = fxmlLoader.load(url);
         primaryStage.setScene(new Scene(root, 800, 800));
-        //XmlLoader.getBattleShipsPlayer1();
-        //XmlLoader.getBattleShipsPlayer2();
+        XmlLoader.getBattleShipsPlayer1();
+        XmlLoader.getBattleShipsPlayer2();
 
         primaryStage.show();
 
