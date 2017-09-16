@@ -3,11 +3,13 @@ package BattleShipGameSource.Project.modules;
 import BattleShipGameSource.Project.UI.UserIteration;
 import BattleShipGameSource.Project.UI.XmlLoader;
 import BattleShipGameSource.Resources.BattleShipGame;
+import BattleShipGameSource.Resources.Scene.GameScreenScene.GameScreenController;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 import static java.lang.System.exit;
+import static java.lang.System.out;
 
 public class GameManager {
     private static final int MAX_PLAYERS = 2;
@@ -42,7 +44,7 @@ public class GameManager {
     public void playGame() throws Exception{
         initPlayers();
         timeStart = System.currentTimeMillis();
-        startGame();
+        //startGame();
     }
 
     public void startGame(){
@@ -50,37 +52,31 @@ public class GameManager {
         boolean goodHit;
         int userChoice;
         endGame = false;
+        Board board;
 
         while(!endGame) {
-            userChoice = UserIteration.gameMenuMsg();
+            board = currentPlayer.getMyBoard();
 
-            switch (userChoice){
-                case 3:
-                    currentPlayer.getMyBoard().printMyBoard(currentPlayer);
-                    currentPlayer.getOponentBoard().printOponentBoard(currentPlayer.getOponentBoardMat());
-                    startGame();
-                    break;
-                case 4:
-                    hit = UserIteration.getPointFromPlayer(currentPlayer, boardSize);
-                    goodHit = checkHit(currentPlayer, hit);
-                    numOfTurns++;
+            currentPlayer.getOponentBoard().printOponentBoard(currentPlayer.getOponentBoardMat());
+            startGame();
 
-                    if(!goodHit){
-                        switchPlayers();
-                    }
-                    break;
-                case 5:
-                    showStatistics(currentPlayer);
-                    break;
-                case 6:
-                    UserIteration.printResultsAndStatistics(currentPlayer, previousPlayer, numOfTurns, setTotalTimeToString(calculateTotalTime(timeStart)));
-                    endGame = true;
-                    break;
-                case 7:
-                    putMine();
+            hit = UserIteration.getPointFromPlayer(currentPlayer, boardSize);
+            goodHit = checkHit(currentPlayer, hit);
+            numOfTurns++;
+
+            if(!goodHit){
+                switchPlayers();
+            }
+
+            showStatistics(currentPlayer);
+
+            UserIteration.printResultsAndStatistics(currentPlayer, previousPlayer, numOfTurns, setTotalTimeToString(calculateTotalTime(timeStart)));
+            endGame = true;
+
+            putMine();
             }
         }
-    }
+
 
     private void putMine() {
         if(currentPlayer.getMinesLeft() < 1){
@@ -107,14 +103,14 @@ public class GameManager {
         return total;
     }
 
-    private void switchPlayers(){
+    public void switchPlayers(){
         Player temp;
         temp = currentPlayer;
         currentPlayer = previousPlayer;
         previousPlayer = temp;
     }
 
-    private boolean checkHit(Player playerTurn, Point hit){
+    public boolean checkHit(Player playerTurn, Point hit){
         int[][] attackedMat;
         boolean goodHit;
         int battelshipAmmount = 0;
