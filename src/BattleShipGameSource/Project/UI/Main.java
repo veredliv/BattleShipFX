@@ -25,7 +25,8 @@ public class Main extends Application{
         System.out.println(url);
         System.out.println(fxmlLoader.getLocation());
         Parent root = fxmlLoader.load(url);
-        primaryStage.setScene(new Scene(root, 800, 800));
+        //root.getStylesheets().add("BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.css");
+        primaryStage.setScene(new Scene(root, 1200, 750));
         XmlLoader.getBattleShipsPlayer1();
         XmlLoader.getBattleShipsPlayer2();
 

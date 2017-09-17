@@ -27,7 +27,7 @@ public class GameManager {
 
     public static void setBoardSize(int i_boardSize){ boardSize = i_boardSize;}
     public static int getBoardSize() { return boardSize; }
-
+    public static int getNumOfTurns() { return numOfTurns; }
     public static Player getCurrentPlayer() {
         return currentPlayer;
     }

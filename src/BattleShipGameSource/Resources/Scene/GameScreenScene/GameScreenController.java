@@ -45,6 +45,13 @@ import javafx.stage.*;
 
 public class GameScreenController implements Initializable {
 
+    @FXML static public Label labelTime = new Label();
+    @FXML static public Label labelNuberOfAttack = new Label("0");
+    @FXML static public Label labelNumberOfHit = new Label("0");
+    @FXML static public Label labelNumberOfMissing = new Label("0");
+    @FXML static public Label lableScore = new Label("0");
+    @FXML static public Label labelAvgTimeOfMove = new Label("0");
+    @FXML static public Label lableMovesMade = new Label("0");
     @FXML private Button btnLoadXML;
     @FXML private Button btnStart;
     @FXML private Button btnExit;
@@ -133,8 +140,8 @@ public class GameScreenController implements Initializable {
 
 
 
-    private void startGame() {
-
+    private void startGame() throws Exception{
+        updateStatistic();
     }
 
     private void initBoard() {
@@ -519,6 +526,21 @@ public class GameScreenController implements Initializable {
     }
 
     public void printMyBoard(Player player){
+
+    }
+
+    public void updateStatistic() throws Exception{
+        try {
+            labelCurrentPlayer.setText(GameManager.getCurrentPlayer().getName());
+            labelNuberOfAttack.setText(String.valueOf(GameManager.getNumOfTurns()));
+            labelNumberOfHit.setText(String.valueOf(GameManager.getCurrentPlayer().getShots()-GameManager.getCurrentPlayer().getMissed()));
+            labelNumberOfMissing.setText(String.valueOf(GameManager.getCurrentPlayer().getMissed()));
+            lableScore.setText(String.valueOf(GameManager.getCurrentPlayer().getScore()));
+            labelAvgTimeOfMove.setText(String.valueOf(GameManager.getCurrentPlayer().getAvgTimeForMove()));
+            //lableMovesMade.setText();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
