@@ -66,10 +66,6 @@ public class GameScreenController implements Initializable {
     @FXML private Tab tabGuessBoard = new Tab();
 
     PlayerBoard myBoard;
-    PlayerBoard enemyBoard;
-
-    PlayerTab myTab = new PlayerTab();
-    PlayerTab enemyTab = new PlayerTab();
 
     @Override
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
@@ -128,13 +124,6 @@ public class GameScreenController implements Initializable {
             XmlLoader xml = new XmlLoader(selectedFile);
             gameLoaded = xml.loadBattelShipsConfig();
             System.out.println("gameLoaded: " + gameLoaded);
-//            myGame = new GameManager();
-//            myGame.playGame();
-//            initBoard();
-//            startGame();
-
-
-
         }   catch (Exception e){
             System.out.println("Exception: " + e.getMessage());
         }
@@ -151,17 +140,13 @@ public class GameScreenController implements Initializable {
     private void initBoard() {
 
         Region spaceBetweenBoards = new Region();
-        //Button cell = new Button();
 
-        //set the space properties
         spaceBetweenBoards.setPrefWidth(86);
         spaceBetweenBoards.setPrefHeight(428);
         spaceBetweenBoards.setLayoutX(298);
         spaceBetweenBoards.setLayoutY(10);
 
 
-        //drow the logic board on the appropriate grid
-        System.out.println(GameManager.getCurrentPlayer());
         setBoardsOnGridPane(controlGrid,GameManager.getCurrentPlayer().getOponentBoardMat(),shipsGrid,
                 GameManager.getCurrentPlayer().getMyBoardMat());
         //add to the middele hbox the 2 grids of boards
@@ -185,36 +170,16 @@ public class GameScreenController implements Initializable {
 
         for (int x = 0; x <= GameManager.getBoardSize() - 1; x++)
         {
-            //set the cells for the number in the side of the board
-            Label label=new Label();
-            Pane cell = new AnchorPane();
-            cell.getStyleClass().add("cellInLeftBoard");
-            cell.setPadding(new Insets(1));
-            cell.setStyle("-fx-background-color: white;");
-            label.setText(String.valueOf(x));
-            label.setTextFill(Paint.valueOf("#175cdd"));
-            label.setFont(javafx.scene.text.Font.font(Font.BOLD));
-            label.setFont(javafx.scene.text.Font.font("Bodoni MT Black",18));
-            label.setAlignment(Pos.BOTTOM_RIGHT);
-            //finish set the left side of the board
-
-
-            //put the label inside the cell
-            cell.getChildren().add(label);
-            //add the cell to the grid in the first row
-            i_ShipBoardOnGridPaneGrid.add(cell,0,x);
-
             for (int y = 0; y <= GameManager.getBoardSize() - 1; y++)
             {
-                BoardCell controlCellBoard = createShipCellNode(x, y,i_shipsBoard);
-                i_ShipBoardOnGridPaneGrid.add(controlCellBoard.getM_cell(),y,x);
+                Pane controlCellBoard = createControlCellNode(x, y,i_shipsBoard);
+                i_ShipBoardOnGridPaneGrid.add(controlCellBoard,y,x);
             }
         }
     }
 
-    private BoardCell createShipCellNode(int x, int y, int[][] i_attackBoard)
+    private BoardCell createOpShipCellNode(int x, int y, int[][] i_controlBoard)
     {
-
         Label label=new Label();
         BoardCell cell =new BoardCell();
         cell.getPos().setX(x);
@@ -222,9 +187,11 @@ public class GameScreenController implements Initializable {
 
         cell.getM_cell().setOnMouseClicked((event) -> {
             try {
-                OnClickCellInShipsBoard(event,cell);
-                setBoardsOnGridPane(controlGrid,GameManager.getCurrentPlayer().getOponentBoardMat(),shipsGrid,
-                        GameManager.getCurrentPlayer().getMyBoardMat());
+                Boolean hit = OnClickCellInShipsBoard(event,cell);
+                if(!hit){
+                    setBoardsOnGridPane(controlGrid,GameManager.getCurrentPlayer().getOponentBoardMat(),shipsGrid,
+                            GameManager.getCurrentPlayer().getMyBoardMat());
+                }
 
             } catch (Exception overlapMine) {
 
@@ -235,108 +202,18 @@ public class GameScreenController implements Initializable {
         cell.getM_cell().setPadding(new Insets(1));
 
         //empty cell
-        Image seaJpg = new Image(getClass().getResourceAsStream("../../../resources/sea_04.jpg"),55,65,true,true);
-        ImageView sea = new ImageView(seaJpg);
+        //Image seaJpg = new Image(getClass().getResourceAsStream("../../../resources/sea_04.jpg"),55,65,true,true);
+        //ImageView sea = new ImageView(seaJpg);
 
         ///mine
         Image MineJpg = new Image(getClass().getResourceAsStream("../../../resources/bomb_02.jpg"),55,65,true,true);
-        ImageView mine = new ImageView(seaJpg);
+        //ImageView mine = new ImageView(seaJpg);
 
-       /* //ship
-        Image ShipJpg = new Image(getClass().getResourceAsStream("/resources/textures/sea_01.jpg"),55,65,true,true);
-        ImageView ship = new ImageView(seaJpg);*/
-
-        if (i_attackBoard[x][y] == -2)
-        { //means there is a mine there
-            //label.setGraphic(mine);
-        }
-        else if  (i_attackBoard[x][y]> 0)
-        { // means there is a ship there
-             // label.setGraphic(mine);
-        }
-        else
-        {//empty cell
-            label.setGraphic(sea);
-        }
-//        cell.setOnMouseClicked((EventHandler<? super MouseEvent>) ActionCellInShipsBoard);
-        cell.getM_cell().getChildren().add(label);
-        return cell;
-
-    }
-
-    void OnClickCellInShipsBoard(MouseEvent event, BoardCell cell ) throws Exception {
-        boolean isPlayerSetMine=false;
-        Boolean myHit;
-        Point point = new Point();
-        int x = cell.getPos().getX();
-        int y = cell.getPos().getY();
-        point.setLocation(x,y);
-        myHit = myGame.checkHit(GameManager.getCurrentPlayer(), point);
-
-        if(!myHit){
-            myGame.switchPlayers();
-        }
-
-        //gameManager.PlayRound(cell.getPos().getX(),cell.getPos().getX(),isPlayerSetMine);
-
-    }
-
-    public void setControlBoardOnGridPane(GridPane i_ControlBoardOnGridPane,int[][] i_controlBoard) {
-
-        showUpperBoard(i_ControlBoardOnGridPane);
-
-
-        for (int x = 0; x <= GameManager.getBoardSize() - 1; x++)
-        {
-            //set the cells for the number in the side of the board
-            Label label=new Label();
-            Pane cell = new AnchorPane();
-            cell.getStyleClass().add("cellInLeftBoard");
-            cell.setPadding(new Insets(1));
-            cell.setStyle("-fx-background-color: white;");
-            label.setText(String.valueOf(x));
-            label.setTextFill(Paint.valueOf("#175cdd"));
-            label.setFont(javafx.scene.text.Font.font(Font.BOLD));
-            label.setFont(javafx.scene.text.Font.font("Bodoni MT Black",18));
-            label.setAlignment(Pos.BOTTOM_RIGHT);
-            //finish set the ledt side of the board
-
-            //put the label inside the cell
-            cell.getChildren().add(label);
-            //add the cell to the grid in the first row
-            i_ControlBoardOnGridPane.add(cell,0,x);
-
-            for (int y = 0; y <= GameManager.getBoardSize() - 1; y++)
-            {
-                Pane controlCellBoard = createControlCellNode(x, y,i_controlBoard);
-                i_ControlBoardOnGridPane.add(controlCellBoard,y,x);
-            }
-        }
-    }
-
-    private Pane createControlCellNode(final int row, final int column, int[][] i_controlBoard)
-    {
-
-        Label label=new Label();
-        AnchorPane cell = new AnchorPane();
-        cell.getStyleClass().add("cellInBoard");
-        cell.setPadding(new Insets(1));
         javafx.scene.image.Image seaJpg = new Image(getClass().getResourceAsStream("../../../resources/sea_04.jpg"),55,65,true,true);
         ImageView sea = new ImageView(seaJpg);
+        //label.setGraphic(sea);
 
-//        cell.getM_cell().setOnMouseClicked((event) -> {
-//            try {
-//                OnClickCellInShipsBoard(event,cell);
-//                setBoardsOnGridPane(controlGrid,GameManager.getCurrentPlayer().getOponentBoardMat(),shipsGrid,
-//                        GameManager.getCurrentPlayer().getMyBoardMat());
-//
-//            } catch (Exception overlapMine) {
-//
-//            }
-//        });
-
-
-        switch (i_controlBoard[row][column])
+        switch (i_controlBoard[x][y])
         {
             case 0:
                 label.setGraphic(sea);
@@ -353,7 +230,70 @@ public class GameScreenController implements Initializable {
                 break;
         }
 
-        // button.setOnAction((t) -> System.out.println("Shoot On " + row + ":" + column));
+        cell.getM_cell().getChildren().add(label);
+        return cell;
+
+    }
+
+    Boolean OnClickCellInShipsBoard(MouseEvent event, BoardCell cell ) throws Exception {
+        boolean isPlayerSetMine=false;
+        Boolean myHit;
+        Point point = new Point();
+        int x = cell.getPos().getX();
+        int y = cell.getPos().getY();
+        point.setLocation(x,y);
+        myHit = myGame.checkHit(GameManager.getCurrentPlayer(), point);
+
+        if(!myHit){
+            myGame.switchPlayers();
+        }
+
+        return myHit;
+
+    }
+
+    public void setControlBoardOnGridPane(GridPane i_ControlBoardOnGridPane,int[][] i_controlBoard) {
+
+        showUpperBoard(i_ControlBoardOnGridPane);
+
+
+        for (int x = 0; x <= GameManager.getBoardSize() - 1; x++)
+        {
+            for (int y = 0; y <= GameManager.getBoardSize() - 1; y++)
+            {
+                BoardCell controlCellBoard = createOpShipCellNode(x, y,i_controlBoard);
+                i_ControlBoardOnGridPane.add(controlCellBoard.getM_cell(),y,x);
+            }
+        }
+    }
+
+    private Pane createControlCellNode(final int row, final int column, int[][] i_controlBoard)
+    {
+
+        Label label=new Label();
+        AnchorPane cell = new AnchorPane();
+        cell.getStyleClass().add("cellInBoard");
+        cell.setPadding(new Insets(1));
+        javafx.scene.image.Image seaJpg = new Image(getClass().getResourceAsStream("../../../resources/sea_04.jpg"),55,65,true,true);
+        ImageView sea = new ImageView(seaJpg);
+        javafx.scene.image.Image shipJpg = new Image(getClass().getResourceAsStream("../../../resources/ship1.jpg"),55,65,true,true);
+        ImageView ship = new ImageView(shipJpg);
+
+        if( i_controlBoard[row][column] == 0){
+            label.setGraphic(sea);
+        }
+        else if( i_controlBoard[row][column] > 0){
+            label.setGraphic(ship);
+        }
+        else if( i_controlBoard[row][column] == -1){//battleship hit
+            label.setStyle("-fx-background-color: red;");
+            label.setText("X");
+        }
+        else if( i_controlBoard[row][column] == -2){//Mine case
+            label.setStyle("-fx-background-color: black;");
+            label.setText("X");
+        }
+
         cell.getChildren().add(label);
         return cell;
     }
@@ -368,8 +308,8 @@ public class GameScreenController implements Initializable {
             cell.getStyleClass().add("cellInUpperBoard");
             cell.setPadding(new Insets(1));
 
-            cell.setStyle("-fx-background-color: white;");
-            label.setText(String.valueOf((char)( i+'A')));
+            //cell.setStyle("-fx-background-color: white;");
+            //label.setText(String.valueOf((char)( i+'A')));
             label.setTextFill(Paint.valueOf("#175cdd"));
             label.setFont(javafx.scene.text.Font.font(Font.BOLD));
             label.setFont(javafx.scene.text.Font.font("Bodoni MT Black",18));

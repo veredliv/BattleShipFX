@@ -71,7 +71,7 @@ public class Player {
     public Board getOponentBoard() {
         return oponentBoard;
     }
-    public int[][] getMyBoardMat(){
+    public int[][]  getMyBoardMat(){
         return myBoardMat;
     }
     public int[][] getOponentBoardMat(){
