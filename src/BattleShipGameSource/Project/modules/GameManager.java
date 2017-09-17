@@ -6,6 +6,8 @@ import BattleShipGameSource.Resources.BattleShipGame;
 import BattleShipGameSource.Resources.Scene.GameScreenScene.GameScreenController;
 
 import java.awt.*;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import static java.lang.System.exit;
@@ -24,6 +26,7 @@ public class GameManager {
     private static long totalTime;
     private static int battleShipsAmount;
     private static int minesAmount;
+    private static LocalDateTime StartTimeForClock;
 
     public static void setBoardSize(int i_boardSize){ boardSize = i_boardSize;}
     public static int getBoardSize() { return boardSize; }
@@ -44,6 +47,8 @@ public class GameManager {
     public void playGame() throws Exception{
         initPlayers();
         timeStart = System.currentTimeMillis();
+        // for the clock
+        StartTimeForClock = LocalDateTime.now();
         //startGame();
     }
 
@@ -196,6 +201,28 @@ public class GameManager {
         }
 
         return res;
+    }
+
+    public static String Timespan()
+    {
+        LocalDateTime Now = LocalDateTime.now();
+        LocalDateTime StartTime = LocalDateTime.from(StartTimeForClock);
+
+        Duration duration = Duration.between(StartTime, Now);
+
+        return formatDuration(duration);
+    }
+
+    private static String formatDuration(Duration duration)
+    {
+        long seconds = duration.getSeconds();
+        long absSeconds = Math.abs(seconds);
+        String positive = String.format(
+                "%d:%02d:%02d",
+                absSeconds / 3600,
+                (absSeconds % 3600) / 60,
+                absSeconds % 60);
+        return seconds < 0 ? "-" + positive : positive;
     }
 }
 

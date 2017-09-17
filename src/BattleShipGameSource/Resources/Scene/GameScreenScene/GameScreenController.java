@@ -24,6 +24,9 @@ import BattleShipGameSource.ProjectFx.UIFx.BoardButton;
 import com.sun.org.apache.xml.internal.resolver.readers.ExtendedXMLCatalogReader;
 
 import BattleShipGameSource.Resources.BattleShipGame;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,10 +45,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.stage.*;
+import javafx.util.Duration;
 
 public class GameScreenController implements Initializable {
 
-    @FXML static public Label labelTime = new Label();
+    @FXML public Label labelTime;
     @FXML static public Label labelNuberOfAttack = new Label("0");
     @FXML static public Label labelNumberOfHit = new Label("0");
     @FXML static public Label labelNumberOfMissing = new Label("0");
@@ -141,6 +145,7 @@ public class GameScreenController implements Initializable {
 
 
     private void startGame() throws Exception{
+        setGameTime();
         updateStatistic();
     }
 
@@ -484,6 +489,8 @@ public class GameScreenController implements Initializable {
     }
 
     public void ExitGame(MouseEvent mouseEvent) throws IOException {
+        Stage stage = (Stage) btnExit.getScene().getWindow();
+        stage.close();
 
 //        !!!Need to show the statistic of the players
 //        Stage stage = (Stage) btnExit.getScene().getWindow();
@@ -541,6 +548,20 @@ public class GameScreenController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void setGameTime()
+    {
+        final Timeline timeline = new Timeline(
+                new KeyFrame(
+                        Duration.millis( 999 ),
+                        event ->
+                        {
+                            labelTime.setText( GameManager.Timespan());
+                        }
+                )
+        );
+        timeline.setCycleCount( Animation.INDEFINITE );
+        timeline.play();
     }
 }
