@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -67,7 +68,10 @@
                                  <content>
                                     <AnchorPane>
                                        <children>
-                                          <HBox fx:id="HboxBoards" layoutX="14.0" layoutY="41.0" prefHeight="441.0" prefWidth="561.0" />
+                                          <HBox fx:id="HboxBoards" layoutX="7.0" layoutY="52.0" prefHeight="441.0" prefWidth="561.0">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                             </children></HBox>
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -136,5 +140,6 @@
             <Label fx:id="lableScore" layoutX="174.0" layoutY="201.0" text="-" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

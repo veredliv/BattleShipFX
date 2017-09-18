@@ -40,11 +40,6 @@ public class StartGameController implements Initializable{
         stage.close();
     }
 
-    @FXML
-    void handlebtnStart(ActionEvent event) {
-        game.startGame();
-        // !!! need to use StartGame() function.
-    }
 
     @FXML
     void handlebtnLoadXmlFile(ActionEvent event) {

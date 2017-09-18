@@ -31,8 +31,13 @@ public class GameManager {
     public static void setBoardSize(int i_boardSize){ boardSize = i_boardSize;}
     public static int getBoardSize() { return boardSize; }
     public static int getNumOfTurns() { return numOfTurns; }
+    public static int getMinesAmount(){return minesAmount;}
+    public static void setNumOfTurns() {  numOfTurns++; }
     public static Player getCurrentPlayer() {
         return currentPlayer;
+    }
+    public static Player getPreviousPlayer() {
+        return previousPlayer;
     }
 
     private static String setTotalTimeToString(long i_totalTime)
@@ -52,43 +57,42 @@ public class GameManager {
         //startGame();
     }
 
-    public void startGame(){
-        Point hit;
-        boolean goodHit;
-        int userChoice;
-        endGame = false;
-        Board board;
+//    public void startGame(){
+//        Point hit;
+//        boolean goodHit;
+//        int userChoice;
+//        endGame = false;
+//        Board board;
+//
+//        while(!endGame) {
+//            board = currentPlayer.getMyBoard();
+//
+//            currentPlayer.getOponentBoard().printOponentBoard(currentPlayer.getOponentBoardMat());
+//            startGame();
+//
+//            hit = UserIteration.getPointFromPlayer(currentPlayer, boardSize);
+//            goodHit = checkHit(currentPlayer, hit);
+//            numOfTurns++;
+//
+//            if(!goodHit){
+//                switchPlayers();
+//            }
+//
+//            showStatistics(currentPlayer);
+//
+//            UserIteration.printResultsAndStatistics(currentPlayer, previousPlayer, numOfTurns, setTotalTimeToString(calculateTotalTime(timeStart)));
+//            endGame = true;
+//
+//            }
+//        }
 
-        while(!endGame) {
-            board = currentPlayer.getMyBoard();
 
-            currentPlayer.getOponentBoard().printOponentBoard(currentPlayer.getOponentBoardMat());
-            startGame();
-
-            hit = UserIteration.getPointFromPlayer(currentPlayer, boardSize);
-            goodHit = checkHit(currentPlayer, hit);
-            numOfTurns++;
-
-            if(!goodHit){
-                switchPlayers();
-            }
-
-            showStatistics(currentPlayer);
-
-            UserIteration.printResultsAndStatistics(currentPlayer, previousPlayer, numOfTurns, setTotalTimeToString(calculateTotalTime(timeStart)));
-            endGame = true;
-
-            putMine();
-            }
-        }
-
-
-    private void putMine() {
+    public void putMine(int x, int y) {
         if(currentPlayer.getMinesLeft() < 1){
             UserIteration.noMoreMinesMsg();
         }
         else {
-            currentPlayer.putMineOnBoard();
+            currentPlayer.putMineOnBoard(x,y);
             switchPlayers();
         }
 
@@ -108,7 +112,7 @@ public class GameManager {
         return total;
     }
 
-    public void switchPlayers(){
+    public static void switchPlayers(){
         Player temp;
         temp = currentPlayer;
         currentPlayer = previousPlayer;
@@ -167,7 +171,7 @@ public class GameManager {
         return goodHit;
     }
 
-    private boolean playerWin(int[][] attackedMat) {
+    public boolean playerWin(int[][] attackedMat) {
         for(int i= 0; i<boardSize;i++){
             for(int j =0; j<boardSize;j++){
                 if(attackedMat[i][j] >= 1)

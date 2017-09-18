@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f52e8598-98ab-485b-a202-bc988b291e54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/UI/Main.class" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/UI/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/modules/GameManager.class" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Project/modules/GameManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.class" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/GameManager.java" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/GameManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/Player.java" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/battleShip_5_basic.xml" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/battleShip_5_basic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/out/production/BattleShipFX/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/StartGameScene/StartGameController.java" afterPath="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/StartGameScene/StartGameController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/src/BattleShipGameSource/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,26 +21,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java">
+      <file leaf-file-name="GameScreenController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+            <state relative-caret-position="219">
+              <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3386#3387#0" expanded="true" />
+                <element signature="e#3430#3431#0" expanded="true" />
+                <element signature="e#3467#3468#0" expanded="true" />
+                <element signature="e#3500#3501#0" expanded="true" />
+                <element signature="e#3548#3549#0" expanded="true" />
+                <element signature="e#3588#3589#0" expanded="true" />
+                <element signature="e#3623#3624#0" expanded="true" />
+                <element signature="e#3654#3655#0" expanded="true" />
+                <element signature="e#3700#3701#0" expanded="true" />
+                <element signature="e#3738#3739#0" expanded="true" />
+                <element signature="e#3772#3773#0" expanded="true" />
+                <element signature="e#3802#3803#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameScreenController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java">
+      <file leaf-file-name="Dialog.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/control/Dialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="282" column="34" lean-forward="true" selection-start-line="282" selection-start-column="34" selection-end-line="282" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="117">
+              <caret line="340" column="26" lean-forward="false" selection-start-line="340" selection-start-column="15" selection-end-line="340" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,8 +79,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+            <state relative-caret-position="75">
+              <caret line="149" column="16" lean-forward="false" selection-start-line="149" selection-start-column="16" selection-end-line="149" selection-end-column="16" />
               <folding>
                 <element signature="e#2242#2243#0" expanded="true" />
                 <element signature="e#2275#2276#0" expanded="true" />
@@ -78,47 +89,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="battleShip_5_basic.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/battleShip_5_basic.xml">
+      <file leaf-file-name="GameScreen.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/event/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scene.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/Scene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="2494" column="0" lean-forward="false" selection-start-line="2494" selection-start-column="0" selection-end-line="2494" selection-end-column="0" />
+            <state relative-caret-position="133">
+              <caret line="72" column="62" lean-forward="false" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
               <folding>
-                <element signature="e#66617#66618#0" expanded="true" />
-                <element signature="e#66663#66664#0" expanded="true" />
+                <marker date="1505721834358" expanded="true" signature="8219:8235" ph="..." />
+                <marker date="1505721834358" expanded="true" signature="8219:8249" ph="..." />
               </folding>
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-544">
-              <caret line="112" column="19" lean-forward="false" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+            <state relative-caret-position="168">
+              <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1404#1405#0" expanded="true" />
+                <element signature="e#1440#1441#0" expanded="true" />
+                <element signature="e#1487#1488#0" expanded="true" />
+                <element signature="e#1524#1525#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserIteration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/UserIteration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="172" column="23" lean-forward="false" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartGameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/StartGameScene/StartGameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,19 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>test</find>
-      <find>loadxml</find>
-      <find>UserIteration</find>
-      <find>userIter</find>
-      <find>load</find>
-      <find>LoadXML</find>
-      <find>setShipsBoardOnGridPane</find>
-      <find>111</find>
-      <find>HBox</find>
-      <find>int x = 0</find>
-      <find>sea</find>
-      <find>start</find>
-      <find>HEAD</find>
       <find>xml</find>
       <find>hbo</find>
       <find>showUpperBoard</find>
@@ -150,11 +155,26 @@
       <find>OnClickCellInShipsBoard</find>
       <find>createShipCellNode</find>
       <find>setControlBoardOnGridPane</find>
-      <find>onc</find>
       <find>setBoardsOnGridPane</find>
       <find>checkhit</find>
       <find>white</find>
       <find>i_controlBoard</find>
+      <find>upd</find>
+      <find>im</find>
+      <find>label</find>
+      <find>bomb</find>
+      <find>init</find>
+      <find>mine</find>
+      <find>myg</find>
+      <find>put</find>
+      <find>start</find>
+      <find>check</find>
+      <find>showAndWait</find>
+      <find>onc</find>
+      <find>s</find>
+      <find>showe</find>
+      <find>win</find>
+      <find>btnLoadXML</find>
     </findStrings>
     <replaceStrings>
       <replace>setOpBoardOnGridPane</replace>
@@ -184,10 +204,11 @@
         <option value="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/BoardCell.java" />
         <option value="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/GameManager.java" />
         <option value="$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java" />
         <option value="$PROJECT_DIR$/src/BattleShipGameSource/Resources/battleShip_5_basic.xml" />
         <option value="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/Player.java" />
+        <option value="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/StartGameScene/StartGameController.java" />
+        <option value="$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/GameManager.java" />
         <option value="$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java" />
       </list>
     </option>
@@ -198,7 +219,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -421,10 +442,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31036000" />
+    <option name="totallyTimeSpent" value="39827000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -472,52 +493,28 @@
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java</url>
-          <line>188</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java</url>
-          <line>237</line>
-          <properties class="BattleShipGameSource.Resources.Scene.GameScreenScene.GameScreenController" method="OnClickCellInShipsBoard">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java</url>
-          <line>180</line>
-          <properties class="BattleShipGameSource.Resources.Scene.GameScreenScene.GameScreenController" method="createOpShipCellNode">
+          <line>260</line>
+          <properties class="BattleShipGameSource.Resources.Scene.GameScreenScene.GameScreenController">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java</url>
+          <line>166</line>
+          <properties class="BattleShipGameSource.Resources.Scene.GameScreenScene.GameScreenController" method="setMines">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="23" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/MainScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/XmlLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2193">
@@ -561,6 +558,10 @@
           <caret line="188" column="65" lean-forward="true" selection-start-line="188" selection-start-column="65" selection-end-line="188" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1524#1525#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -571,6 +572,18 @@
           <caret line="176" column="45" lean-forward="true" selection-start-line="176" selection-start-column="45" selection-end-line="176" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3386#3387#0" expanded="true" />
+            <element signature="e#3430#3431#0" expanded="true" />
+            <element signature="e#3467#3468#0" expanded="true" />
+            <element signature="e#3500#3501#0" expanded="true" />
+            <element signature="e#3548#3549#0" expanded="true" />
+            <element signature="e#3588#3589#0" expanded="true" />
+            <element signature="e#3623#3624#0" expanded="true" />
+            <element signature="e#3654#3655#0" expanded="true" />
+            <element signature="e#3700#3701#0" expanded="true" />
+            <element signature="e#3738#3739#0" expanded="true" />
+            <element signature="e#3772#3773#0" expanded="true" />
+            <element signature="e#3802#3803#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -590,7 +603,7 @@
         <state relative-caret-position="27">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -609,6 +622,18 @@
           <caret line="72" column="38" lean-forward="false" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3386#3387#0" expanded="true" />
+            <element signature="e#3430#3431#0" expanded="true" />
+            <element signature="e#3467#3468#0" expanded="true" />
+            <element signature="e#3500#3501#0" expanded="true" />
+            <element signature="e#3548#3549#0" expanded="true" />
+            <element signature="e#3588#3589#0" expanded="true" />
+            <element signature="e#3623#3624#0" expanded="true" />
+            <element signature="e#3654#3655#0" expanded="true" />
+            <element signature="e#3700#3701#0" expanded="true" />
+            <element signature="e#3738#3739#0" expanded="true" />
+            <element signature="e#3772#3773#0" expanded="true" />
+            <element signature="e#3802#3803#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -638,6 +663,10 @@
           <caret line="155" column="20" lean-forward="false" selection-start-line="155" selection-start-column="12" selection-end-line="155" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1524#1525#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,7 +740,7 @@
         <state relative-caret-position="1241">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -723,14 +752,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/UserIteration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -780,9 +801,9 @@
         <state relative-caret-position="136">
           <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#318#319#0" expanded="false" />
+            <element signature="e#346#347#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -829,23 +850,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="56" lean-forward="false" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/XmlLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -853,7 +863,7 @@
     <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
-          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <caret line="30" column="42" lean-forward="false" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -873,8 +883,8 @@
         <state relative-caret-position="107">
           <caret line="2494" column="0" lean-forward="false" selection-start-line="2494" selection-start-column="0" selection-end-line="2494" selection-end-column="0" />
           <folding>
-            <element signature="e#66617#66618#0" expanded="true" />
-            <element signature="e#66663#66664#0" expanded="true" />
+            <element signature="e#66617#66618#0" expanded="false" />
+            <element signature="e#66663#66664#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -884,27 +894,6 @@
         <state relative-caret-position="237">
           <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-          <folding>
-            <element signature="e#2242#2243#0" expanded="true" />
-            <element signature="e#2275#2276#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="112" column="19" lean-forward="false" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -918,17 +907,92 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="72" column="62" lean-forward="false" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
+          <folding>
+            <marker date="1505721834358" expanded="true" signature="8219:8235" ph="..." />
+            <marker date="1505721834358" expanded="true" signature="8219:8249" ph="..." />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/bomb_02.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java">
+    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/StartGameScene/StartGameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="282" column="34" lean-forward="true" selection-start-line="282" selection-start-column="34" selection-end-line="282" selection-end-column="34" />
+        <state relative-caret-position="127">
+          <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="149" column="16" lean-forward="false" selection-start-line="149" selection-start-column="16" selection-end-line="149" selection-end-column="16" />
+          <folding>
+            <element signature="e#2242#2243#0" expanded="true" />
+            <element signature="e#2275#2276#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/javafx-src.zip!/javafx/scene/control/Dialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="340" column="26" lean-forward="false" selection-start-line="340" selection-start-column="15" selection-end-line="340" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/UI/UserIteration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="172" column="23" lean-forward="false" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Project/modules/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="51" column="19" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1524#1525#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BattleShipGameSource/Resources/Scene/GameScreenScene/GameScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3386#3387#0" expanded="true" />
+            <element signature="e#3430#3431#0" expanded="true" />
+            <element signature="e#3467#3468#0" expanded="true" />
+            <element signature="e#3500#3501#0" expanded="true" />
+            <element signature="e#3548#3549#0" expanded="true" />
+            <element signature="e#3588#3589#0" expanded="true" />
+            <element signature="e#3623#3624#0" expanded="true" />
+            <element signature="e#3654#3655#0" expanded="true" />
+            <element signature="e#3700#3701#0" expanded="true" />
+            <element signature="e#3738#3739#0" expanded="true" />
+            <element signature="e#3772#3773#0" expanded="true" />
+            <element signature="e#3802#3803#0" expanded="true" />
           </folding>
         </state>
       </provider>

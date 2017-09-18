@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import BattleShipGameSource.Project.UI.Main;
@@ -27,6 +28,7 @@ import BattleShipGameSource.Resources.BattleShipGame;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,11 +43,18 @@ import javafx.scene.control.ScrollPane;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.*;
 import javafx.util.Duration;
+
+import static BattleShipGameSource.Project.modules.GameManager.getNumOfTurns;
+import static BattleShipGameSource.Project.modules.GameManager.setNumOfTurns;
 
 public class GameScreenController implements Initializable {
 
@@ -56,6 +65,7 @@ public class GameScreenController implements Initializable {
     @FXML static public Label lableScore = new Label("0");
     @FXML static public Label labelAvgTimeOfMove = new Label("0");
     @FXML static public Label lableMovesMade = new Label("0");
+    @FXML static public Label bomb = new Label();
     @FXML private Button btnLoadXML;
     @FXML private Button btnStart;
     @FXML private Button btnExit;
@@ -64,6 +74,8 @@ public class GameScreenController implements Initializable {
     @FXML private static TabPane boardTabs;
     GridPane controlGrid = new GridPane();
     GridPane shipsGrid= new GridPane();
+    //Image MineJpg;
+    ImageView mine;
     Boolean checkHit;
 
     @FXML
@@ -132,11 +144,13 @@ public class GameScreenController implements Initializable {
 
 
         try {
-            XmlLoader xml = new XmlLoader(selectedFile);
-            gameLoaded = xml.loadBattelShipsConfig();
-            System.out.println("gameLoaded: " + gameLoaded);
+                XmlLoader xml = new XmlLoader(selectedFile);
+                gameLoaded = xml.loadBattelShipsConfig();
+                if( gameLoaded ){
+                    showAlert("Game Loaded Successfully");
+                }
         }   catch (Exception e){
-            System.out.println("Exception: " + e.getMessage());
+                System.out.println("Exception: " + e.getMessage());
         }
 
         return gameLoaded;
@@ -146,7 +160,30 @@ public class GameScreenController implements Initializable {
 
     private void startGame() throws Exception{
         setGameTime();
+        //setMines();
         updateStatistic();
+    }
+
+    private void setMines() {
+        Image MineJpg = new Image(getClass().getResourceAsStream("../../../resources/bomb_02.jpg"),55,65,true,true);
+        ImageView mine = new ImageView(MineJpg);
+        int minesAmount = GameManager.getMinesAmount();
+
+        for(int i = 0; i< minesAmount; i++){
+            Label bomb = new Label();
+            AnchorPane cell = new AnchorPane();
+            cell.getStyleClass().add("cellInBoard");
+            cell.setPadding(new Insets(1));
+            bomb.setGraphic(mine);
+            cell.getChildren().add(bomb);
+        }
+    }
+
+    private void onDragMine(){
+        //int x = bomb.getTranslateX();
+        //int y = bomb.getScaleY();
+
+        myGame.putMine(1,1);
     }
 
     private void initBoard() {
@@ -201,9 +238,20 @@ public class GameScreenController implements Initializable {
             try {
                 Boolean hit = OnClickCellInShipsBoard(event,cell);
                 if(!hit){
+                    showAlert("You Missed");
                     setBoardsOnGridPane(controlGrid,GameManager.getCurrentPlayer().getOponentBoardMat(),shipsGrid,
                             GameManager.getCurrentPlayer().getMyBoardMat());
                 }
+                else {
+                    if( myGame.playerWin(GameManager.getPreviousPlayer().getMyBoardMat()) ){
+                        showEndGameAlert();
+                    }
+                    else {
+                        showAlert("Good Shot, play again...");
+                    }
+                }
+                updateStatistic();
+                setMines();
 
             } catch (Exception overlapMine) {
 
@@ -247,8 +295,22 @@ public class GameScreenController implements Initializable {
 
     }
 
+    private void showEndGameAlert() throws Exception{
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("The Winner is: " + GameManager.getCurrentPlayer().getName() + "!!!");
+        alert.setContentText("Are you want to play again??");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            btnLoadXML.setDisable(false);
+            myGame.playGame();
+        } else {
+            System.exit(1);
+        }
+    }
+
     Boolean OnClickCellInShipsBoard(MouseEvent event, BoardCell cell ) throws Exception {
-        boolean isPlayerSetMine=false;
         Boolean myHit;
         Point point = new Point();
         int x = cell.getPos().getX();
@@ -257,8 +319,10 @@ public class GameScreenController implements Initializable {
         myHit = myGame.checkHit(GameManager.getCurrentPlayer(), point);
 
         if(!myHit){
-            myGame.switchPlayers();
+            GameManager.switchPlayers();
         }
+
+        setNumOfTurns();
 
         return myHit;
 
@@ -349,6 +413,7 @@ public class GameScreenController implements Initializable {
             myGame = new GameManager();
             myGame.playGame();
             initBoard();
+            showAlert("Game Start!");
             startGame();
         } catch (Exception e) {
             System.out.println("aaaaaaaaaa");
@@ -356,21 +421,16 @@ public class GameScreenController implements Initializable {
         }
     }
 
-
-    private void drawShipsOnBoard(Tab tabMyBoard, BattelShip[] battelShipsArray) {
-
-        for(BattelShip battelShip : battelShipsArray ) {
-            ArrayList<Point> shipsPos = new ArrayList<>();
-            shipsPos = getShipPoint(battelShip);
-            for (Point point : shipsPos) {
-                int xVal = (int)point.getX();
-                int yVal = (int)point.getY();
-                BoardButton currButton = (BoardButton)(myBoard.getPlayerBoardButtons().get(yVal * battelShip.getLength() + xVal + 1));
-                currButton.textProperty().setValue("x");
-            }
-            return;
-        }
+    public void showAlert(String msg) throws Exception{
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("BattleShips");
+        alert.setContentText(msg);
+        alert.setHeaderText(null);
+        alert.show();
+        Thread.sleep(1000);
+        alert.close();
     }
+
 
     ArrayList<Point> getShipPoint(BattelShip ship) {
         ArrayList<Point> shipsPos = new ArrayList<>();
@@ -456,94 +516,24 @@ public class GameScreenController implements Initializable {
         return shipsPos;
     }
 
-    ArrayList<BoardButton> drawTab(Player currentPlayer, PlayerTab playerTab, Tab tab, boolean isClickable) {
-        GameScreenController.boardTabs.getTabs().clear();
-        ArrayList<BoardButton> boardButtons = new ArrayList<>();
-        //drawTabForPlayer(currentPlayer);
-        tab.setClosable(false);
 
-        playerTab.scrollPane = new ScrollPane();
-        playerTab.gridPane = new GridPane();
-
-        playerTab.scrollPane.setContent(playerTab.gridPane);
-        playerTab.scrollPane.setFitToHeight(true);
-        playerTab.scrollPane.setFitToWidth(true);
-        playerTab.scrollPane.setMaxWidth(Region.USE_COMPUTED_SIZE);
-        playerTab.scrollPane.setMaxHeight(Region.USE_COMPUTED_SIZE);
-
-        boardButtons = drawBoard(playerTab.gridPane, !isClickable);
-
-        tab.setContent(playerTab.scrollPane);
-        playerTab.gridPane.setVisible(true);
-
-        GameScreenController.boardTabs.getTabs().add(tab);
-
-        PlayerBoard playerBoard = new PlayerBoard(boardButtons);
-        playerBoards.add(playerBoard);
-
-        return boardButtons;
-    }
-
-    private void drawTabForPlayer(Player currentPlayer) {
-
-    }
 
     public void ExitGame(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) btnExit.getScene().getWindow();
         stage.close();
-
-//        !!!Need to show the statistic of the players
-//        Stage stage = (Stage) btnExit.getScene().getWindow();
-//        stage.close();
-//
-//        FXMLLoader fxmlLoader = new FXMLLoader();
-//        URL url = getClass().getResource("src\\BattleShipGameSource\\Resources\\Scene\\GameOverScene\\GameOver.fxml");
-//        fxmlLoader.setLocation(url);
-//        Parent root = fxmlLoader.load(url);
-//        Main.window.setScene(new Scene(root, 500, 500));
-//
-//        Main.window.show();
-
     }
 
-
-    ArrayList<BoardButton> drawBoard(GridPane boardGrid, boolean isDisabled) {
-        boardGrid.getChildren().clear();
-        boardGrid.getColumnConstraints().clear();
-        boardGrid.getRowConstraints().clear();
-
-        ArrayList<BoardButton> playerBoardButtons = new ArrayList<>();
-        int bosrdSize = GameManager.getBoardSize();
-        for (int y = 0; y < bosrdSize; y++) {
-            for (int x = 0; x < bosrdSize; x++) {
-                // Create a new TextField in each Iteration
-                BoardButton button = new BoardButton(y, x);
-                button.setDisable(isDisabled);
-
-                button.setPrefWidth(50);
-                button.setPrefHeight(50);
-
-                playerBoardButtons.add(button);
-                GridPane.setConstraints(button, x, y);
-                boardGrid.getChildren().add(button);
-            }
-        }
-
-        return playerBoardButtons;
-    }
-
-    public void printMyBoard(Player player){
-
-    }
 
     public void updateStatistic() throws Exception{
         try {
             labelCurrentPlayer.setText(GameManager.getCurrentPlayer().getName());
             labelNuberOfAttack.setText(String.valueOf(GameManager.getNumOfTurns()));
+            labelNuberOfAttack.setText(String.valueOf(GameManager.getNumOfTurns()));
             labelNumberOfHit.setText(String.valueOf(GameManager.getCurrentPlayer().getShots()-GameManager.getCurrentPlayer().getMissed()));
             labelNumberOfMissing.setText(String.valueOf(GameManager.getCurrentPlayer().getMissed()));
             lableScore.setText(String.valueOf(GameManager.getCurrentPlayer().getScore()));
             labelAvgTimeOfMove.setText(String.valueOf(GameManager.getCurrentPlayer().getAvgTimeForMove()));
+
             //lableMovesMade.setText();
         } catch (Exception e) {
             e.printStackTrace();

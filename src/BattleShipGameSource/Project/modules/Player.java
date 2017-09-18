@@ -185,13 +185,13 @@ public class Player {
         oponentBoardMat[x][y] = 2;
     }
 
-    public void putMineOnBoard() {
+    public void putMineOnBoard(int x, int y) {
         Point mineLocation = new Point(0,0);
         Boolean validMine = false;
 
         while (!validMine) {
-            mineLocation = UserIteration.getPointFromPlayer(this, boardSize);
-            validMine = checkMineLocation(mineLocation.x, mineLocation.y);
+            //mineLocation = UserIteration.getPointFromPlayer(this, boardSize);
+            validMine = checkMineLocation(x, y);
             if(!validMine)
                 UserIteration.mineLocatedNotValidMsg();
         }
